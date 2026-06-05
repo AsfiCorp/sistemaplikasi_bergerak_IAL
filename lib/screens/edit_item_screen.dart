@@ -69,7 +69,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
       Navigator.pop(context);
       
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Item successfully updated!'), backgroundColor: AppTheme.primaryOlive),
+        SnackBar(content: Text('Item successfully updated!'), backgroundColor: Theme.of(context).primaryColor),
       );
     }
   }
@@ -91,9 +91,9 @@ class _EditItemScreenState extends State<EditItemScreen> {
                   height: 200,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppTheme.tertiaryMutedOlive.withOpacity(0.1),
+                    color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3), style: BorderStyle.solid),
+                    border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3), style: BorderStyle.solid),
                     image: _imageBytes != null
                         ? DecorationImage(image: MemoryImage(_imageBytes!), fit: BoxFit.cover)
                         : (widget.item.imageUrl.isNotEmpty && _imageBytes == null)
@@ -104,9 +104,9 @@ class _EditItemScreenState extends State<EditItemScreen> {
                       ? Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(Icons.add_a_photo_outlined, size: 48, color: AppTheme.primaryOlive),
+                            Icon(Icons.add_a_photo_outlined, size: 48, color: Theme.of(context).primaryColor),
                             const SizedBox(height: 8),
-                            Text('Upload Image', style: GoogleFonts.inter(color: AppTheme.primaryOlive, fontWeight: FontWeight.bold)),
+                            Text('Upload Image', style: GoogleFonts.inter(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold)),
                           ],
                         )
                       : null,

@@ -61,31 +61,31 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
       body: ListView(
         padding: const EdgeInsets.all(24.0),
         children: [
-          Text('How can we help you?', style: GoogleFonts.epilogue(fontSize: 24, fontWeight: FontWeight.bold, color: AppTheme.secondaryCharcoal)),
+          Text('How can we help you?', style: GoogleFonts.epilogue(fontSize: 24, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface)),
           const SizedBox(height: 24),
           TextField(
             controller: _searchController,
             decoration: InputDecoration(
               hintText: 'Search for articles...',
-              prefixIcon: const Icon(Icons.search, color: AppTheme.tertiaryMutedOlive),
+              prefixIcon: Icon(Icons.search, color: Theme.of(context).colorScheme.secondary),
               filled: true,
               fillColor: Colors.white,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3))),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3))),
             ),
           ),
           const SizedBox(height: 32),
-          Text('FAQ', style: GoogleFonts.epilogue(fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.primaryOlive)),
+          Text('FAQ', style: GoogleFonts.epilogue(fontSize: 18, fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor)),
           const SizedBox(height: 16),
           ..._filteredFaqs.map((faq) => _buildFaqItem(faq)),
           
           const SizedBox(height: 48),
           OutlinedButton.icon(
             onPressed: _contactSupport,
-            icon: const Icon(Icons.email_outlined, color: AppTheme.primaryOlive),
+            icon: Icon(Icons.email_outlined, color: Theme.of(context).primaryColor),
             label: const Text('CONTACT SUPPORT'),
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 16),
-              side: const BorderSide(color: AppTheme.primaryOlive),
+              side: BorderSide(color: Theme.of(context).primaryColor),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
             ),
           ),
@@ -100,7 +100,7 @@ class _HelpSupportScreenState extends State<HelpSupportScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+        border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
       ),
       child: ExpansionTile(
         title: Text(question, style: GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 14)),

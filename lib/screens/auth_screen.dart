@@ -81,7 +81,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 style: GoogleFonts.epilogue(
                   fontSize: 48,
                   fontWeight: FontWeight.w800,
-                  color: AppTheme.primaryOlive,
+                  color: Theme.of(context).primaryColor,
                   letterSpacing: 2.0,
                 ),
               ),
@@ -90,7 +90,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 'Welcome to your vintage archive.',
                 style: GoogleFonts.inter(
                   fontSize: 18,
-                  color: AppTheme.secondaryCharcoal,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 48),
@@ -108,7 +108,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                         ),
                       ),
                       validator: (value) {
@@ -128,7 +128,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                          borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                         ),
                       ),
                       validator: (value) {
@@ -155,7 +155,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Text(
                     'Forgot Password?',
                     style: GoogleFonts.inter(
-                      color: AppTheme.primaryOlive,
+                      color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -182,7 +182,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 children: [
                   Text(
                     "Don't have an account?",
-                    style: GoogleFonts.inter(color: AppTheme.secondaryCharcoal),
+                    style: GoogleFonts.inter(color: Theme.of(context).colorScheme.onSurface),
                   ),
                   TextButton(
                     onPressed: () {
@@ -194,7 +194,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     child: Text(
                       'Create Account',
                       style: GoogleFonts.inter(
-                        color: AppTheme.primaryOlive,
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

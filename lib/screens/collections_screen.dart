@@ -22,7 +22,7 @@ class CollectionsScreen extends StatelessWidget {
                 style: GoogleFonts.epilogue(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: AppTheme.tertiaryMutedOlive,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
             )

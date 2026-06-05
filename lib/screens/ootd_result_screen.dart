@@ -30,7 +30,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
     context.read<WardrobeProvider>().addOutfit(outfit);
     
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('AI Outfit saved to Wardrobe!'), backgroundColor: AppTheme.primaryOlive),
+      SnackBar(content: Text('AI Outfit saved to Wardrobe!'), backgroundColor: Theme.of(context).primaryColor),
     );
     
     Navigator.pop(context); // Go back to Home
@@ -39,7 +39,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundCream,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(title: const Text('AI GENERATED OOTD')),
       body: SingleChildScrollView(
         child: Column(
@@ -51,7 +51,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
                 style: GoogleFonts.epilogue(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppTheme.secondaryCharcoal,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -70,7 +70,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                    border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                   ),
                   child: Row(
                     children: [
@@ -99,7 +99,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
                               Text(
                                 item.category.toUpperCase(),
                                 style: GoogleFonts.epilogue(
-                                  color: AppTheme.primaryOlive,
+                                  color: Theme.of(context).primaryColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 10,
                                 ),
@@ -110,7 +110,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
                                 style: GoogleFonts.inter(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
-                                  color: AppTheme.secondaryCharcoal,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                 ),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -138,7 +138,7 @@ class _OotdResultScreenState extends State<OotdResultScreen> {
                     'Prompt Label: ${widget.promptLabel}',
                     style: GoogleFonts.inter(
                       fontStyle: FontStyle.italic,
-                      color: AppTheme.secondaryCharcoal,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                     textAlign: TextAlign.center,
                   ),

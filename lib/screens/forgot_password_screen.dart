@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
 import '../utils/theme.dart';
+import 'otp_verification_screen.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -17,34 +18,32 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
   void _handleReset() async {
     if (_formKey.currentState!.validate()) {
+      final String email = _emailController.text.trim();
       final auth = context.read<AuthProvider>();
       
-      if (!auth.checkEmailExists(_emailController.text)) {
+      if (auth.checkEmailExists(email)) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Email tidak terdaftar', style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+            content: Text('Kode OTP terkirim!', style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+            backgroundColor: Colors.green,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+
+        if (!mounted) return;
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const OtpVerificationScreen()),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Email belum terdaftar!', style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
             backgroundColor: Colors.red,
             behavior: SnackBarBehavior.floating,
           ),
         );
-        return;
       }
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            'Reset link sent to your email!',
-            style: GoogleFonts.inter(fontWeight: FontWeight.w600),
-          ),
-          backgroundColor: AppTheme.primaryOlive,
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-
-      await Future.delayed(const Duration(seconds: 2));
-      
-      if (!mounted) return;
-      Navigator.pop(context);
     }
   }
 
@@ -74,15 +73,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               style: GoogleFonts.epilogue(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.secondaryCharcoal,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 16),
             Text(
-              "Don't worry, it happens. Enter your email address and we'll send you a link to reset your password.",
+              "Don't worry, it happens. Enter your email address and we'll send you a kode OTP angka to reset your password.",
               style: GoogleFonts.inter(
                 fontSize: 16,
-                color: AppTheme.secondaryCharcoal.withOpacity(0.7),
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
                 height: 1.5,
               ),
             ),
@@ -99,7 +98,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                    borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                   ),
                 ),
                 validator: (value) {
@@ -117,7 +116,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: _handleReset,
-                child: const Text('SEND RESET LINK'),
+                child: const Text('SEND OTP CODE'),
               ),
             ),
           ],

@@ -46,7 +46,7 @@ class ProfileScreen extends StatelessWidget {
             style: GoogleFonts.epilogue(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: AppTheme.secondaryCharcoal,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 4),
@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
             userProfile.username,
             style: GoogleFonts.inter(
               fontSize: 14,
-              color: AppTheme.tertiaryMutedOlive,
+              color: Theme.of(context).colorScheme.secondary,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -62,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
           Text(
             'Member since $formattedJoinDate',
             style: GoogleFonts.inter(
-              color: AppTheme.tertiaryMutedOlive,
+              color: Theme.of(context).colorScheme.secondary,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -73,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
               userProfile.bio,
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
-                color: AppTheme.secondaryCharcoal.withOpacity(0.8),
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
               ),
             ),
           ),
@@ -85,16 +85,16 @@ class ProfileScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+              border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _buildStatColumn(wardrobe.items.length.toString(), 'Collections', () {
+                _buildStatColumn(context, wardrobe.items.length.toString(), 'Collections', () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const CollectionsScreen()));
                 }),
-                Container(width: 1, height: 40, color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
-                _buildStatColumn(wardrobe.favoriteItems.length.toString(), 'Favorites', () {
+                Container(width: 1, height: 40, color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
+                _buildStatColumn(context, wardrobe.favoriteItems.length.toString(), 'Favorites', () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const FavoritesScreen()));
                 }),
               ],
@@ -119,8 +119,8 @@ class ProfileScreen extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                title: Text('Log Out', style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, color: AppTheme.secondaryCharcoal)),
-                content: Text('Are you sure you want to log out?', style: GoogleFonts.inter(color: AppTheme.secondaryCharcoal)),
+                title: Text('Log Out', style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface)),
+                content: Text('Are you sure you want to log out?', style: GoogleFonts.inter(color: Theme.of(context).colorScheme.onSurface)),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 actions: [
                   TextButton(
@@ -150,7 +150,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildStatColumn(String count, String label, VoidCallback? onTap) {
+  Widget _buildStatColumn(BuildContext context, String count, String label, VoidCallback? onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -160,14 +160,14 @@ class ProfileScreen extends StatelessWidget {
             style: GoogleFonts.epilogue(
               fontSize: 24,
               fontWeight: FontWeight.w800,
-              color: AppTheme.primaryOlive,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           const SizedBox(height: 4),
           Text(
             label,
             style: GoogleFonts.inter(
-              color: AppTheme.secondaryCharcoal.withOpacity(0.6),
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -181,19 +181,19 @@ class ProfileScreen extends StatelessWidget {
       onTap: onTap,
       child: Row(
         children: [
-        Icon(icon, color: color ?? AppTheme.secondaryCharcoal),
+        Icon(icon, color: color ?? Theme.of(context).colorScheme.onSurface),
         const SizedBox(width: 16),
         Expanded(
           child: Text(
             title,
             style: GoogleFonts.inter(
-              color: color ?? AppTheme.secondaryCharcoal,
+              color: color ?? Theme.of(context).colorScheme.onSurface,
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
-        Icon(Icons.chevron_right, color: AppTheme.tertiaryMutedOlive),
+        Icon(Icons.chevron_right, color: Theme.of(context).colorScheme.secondary),
       ],
       ),
     );

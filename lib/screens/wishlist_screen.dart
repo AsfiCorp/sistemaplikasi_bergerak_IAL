@@ -25,9 +25,9 @@ class WishlistScreen extends StatelessWidget {
                 child: Image.network(item.imageUrl, width: 60, height: 60, fit: BoxFit.cover),
               ),
               title: Text(item.title, style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
-              subtitle: Text(item.brand, style: GoogleFonts.inter(color: AppTheme.tertiaryMutedOlive)),
+              subtitle: Text(item.brand, style: GoogleFonts.inter(color: Theme.of(context).colorScheme.secondary)),
               trailing: IconButton(
-                icon: const Icon(Icons.favorite, color: AppTheme.primaryOlive),
+                icon: Icon(Icons.favorite, color: Theme.of(context).primaryColor),
                 onPressed: () {},
               ),
             ),

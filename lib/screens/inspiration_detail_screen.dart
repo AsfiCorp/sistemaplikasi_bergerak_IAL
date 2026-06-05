@@ -44,9 +44,9 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
       context.read<WardrobeProvider>().addItem(newItem);
       
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           content: Text('Item successfully added to your Wardrobe!'),
-          backgroundColor: AppTheme.primaryOlive,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
       );
       
@@ -61,11 +61,11 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppTheme.secondaryCharcoal),
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onSurface),
         title: Text(
           'Inspiration Details',
           style: GoogleFonts.epilogue(
-            color: AppTheme.secondaryCharcoal,
+            color: Theme.of(context).colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -98,7 +98,7 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
                       style: GoogleFonts.epilogue(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: AppTheme.secondaryCharcoal,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -106,7 +106,7 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
                       'Fill in the details below to add this inspiration to your personal collection.',
                       style: GoogleFonts.inter(
                         fontSize: 14,
-                        color: AppTheme.tertiaryMutedOlive,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                     const SizedBox(height: 24),
@@ -154,7 +154,7 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
                       child: ElevatedButton(
                         onPressed: _saveToWardrobe,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: AppTheme.primaryOlive,
+                          backgroundColor: Theme.of(context).primaryColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
@@ -193,7 +193,7 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
           label,
           style: GoogleFonts.inter(
             fontWeight: FontWeight.w600,
-            color: AppTheme.secondaryCharcoal,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 8),
@@ -205,11 +205,11 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
             fillColor: Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
             ),
           ),
           validator: (value) => value == null || value.isEmpty ? 'Required' : null,
@@ -232,7 +232,7 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
           label,
           style: GoogleFonts.inter(
             fontWeight: FontWeight.w600,
-            color: AppTheme.secondaryCharcoal,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         const SizedBox(height: 8),
@@ -243,11 +243,11 @@ class _InspirationDetailScreenState extends State<InspirationDetailScreen> {
             fillColor: Colors.white,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+              borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
             ),
           ),
           items: items.map((item) {

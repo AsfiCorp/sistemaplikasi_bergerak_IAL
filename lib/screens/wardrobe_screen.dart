@@ -64,9 +64,9 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(item.brand.toUpperCase(), style: GoogleFonts.epilogue(color: AppTheme.tertiaryMutedOlive, fontWeight: FontWeight.bold, fontSize: 12)),
+                            Text(item.brand.toUpperCase(), style: GoogleFonts.epilogue(color: Theme.of(context).colorScheme.secondary, fontWeight: FontWeight.bold, fontSize: 12)),
                             const SizedBox(height: 4),
-                            Text(item.title, style: GoogleFonts.epilogue(fontSize: 20, fontWeight: FontWeight.bold, color: AppTheme.secondaryCharcoal)),
+                            Text(item.title, style: GoogleFonts.epilogue(fontSize: 20, fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface)),
                             const SizedBox(height: 8),
                             Text(item.material, style: GoogleFonts.inter(color: Colors.grey.shade600)),
                           ],
@@ -93,13 +93,13 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                                   'Item successfully added to your Wardrobe!',
                                   style: GoogleFonts.inter(fontWeight: FontWeight.w600, color: Colors.white),
                                 ),
-                                backgroundColor: AppTheme.primaryOlive,
+                                backgroundColor: Theme.of(context).primaryColor,
                                 behavior: SnackBarBehavior.floating,
                               ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: isOwned ? Colors.grey.shade400 : AppTheme.primaryOlive,
+                            backgroundColor: isOwned ? Colors.grey.shade400 : Theme.of(context).primaryColor,
                             disabledBackgroundColor: Colors.grey.shade400,
                           ),
                           child: Text(isOwned ? 'ALREADY IN WARDROBE' : 'ADD TO WARDROBE'),
@@ -121,17 +121,17 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                           },
                           icon: Icon(
                             isLoved ? Icons.favorite : Icons.favorite_border,
-                            color: isLoved ? Colors.red : AppTheme.primaryOlive,
+                            color: isLoved ? Colors.red : Theme.of(context).primaryColor,
                           ),
                           label: Text(
                             isLoved ? 'LOVED' : 'LOVE IT',
                             style: GoogleFonts.epilogue(
-                              color: AppTheme.primaryOlive,
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           style: OutlinedButton.styleFrom(
-                            side: const BorderSide(color: AppTheme.primaryOlive),
+                            side: BorderSide(color: Theme.of(context).primaryColor),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
                           ),
                         ),
@@ -156,16 +156,16 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                                   Navigator.pop(context);
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => EditItemScreen(item: item)));
                                 },
-                                icon: const Icon(Icons.edit, color: AppTheme.primaryOlive),
+                                icon: Icon(Icons.edit, color: Theme.of(context).primaryColor),
                                 label: Text(
                                   'EDIT ITEM',
                                   style: GoogleFonts.epilogue(
-                                    color: AppTheme.primaryOlive,
+                                    color: Theme.of(context).primaryColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 style: OutlinedButton.styleFrom(
-                                  side: const BorderSide(color: AppTheme.primaryOlive),
+                                  side: BorderSide(color: Theme.of(context).primaryColor),
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
                                 ),
                               ),
@@ -214,7 +214,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                       Navigator.pop(context);
                       Navigator.push(context, MaterialPageRoute(builder: (context) => ArchiveDetailScreen(item: item)));
                     },
-                    child: Text('View Full Details', style: GoogleFonts.inter(color: AppTheme.primaryOlive, fontWeight: FontWeight.w600)),
+                    child: Text('View Full Details', style: GoogleFonts.inter(color: Theme.of(context).primaryColor, fontWeight: FontWeight.w600)),
                   ),
                 ],
               ),
@@ -233,12 +233,12 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
         : wardrobe.items.where((i) => i.category == _selectedCategory).toList();
 
     return Scaffold(
-      backgroundColor: AppTheme.backgroundCream,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => const AddItemScreen()));
         },
-        backgroundColor: AppTheme.primaryOlive,
+        backgroundColor: Theme.of(context).primaryColor,
         child: const Icon(Icons.add, color: Colors.white),
       ),
       body: Column(
@@ -251,7 +251,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
               style: GoogleFonts.epilogue(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.secondaryCharcoal,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -264,12 +264,12 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                  border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                 ),
                 child: Text(
                   'No outfit planned for today.',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.inter(color: AppTheme.tertiaryMutedOlive),
+                  style: GoogleFonts.inter(color: Theme.of(context).colorScheme.secondary),
                 ),
               ),
             )
@@ -318,7 +318,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                                         style: GoogleFonts.epilogue(
                                           fontSize: 24,
                                           fontWeight: FontWeight.bold,
-                                          color: AppTheme.secondaryCharcoal,
+                                          color: Theme.of(context).colorScheme.onSurface,
                                         ),
                                       ),
                                     ),
@@ -351,7 +351,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(16),
-                                          border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                                          border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                                         ),
                                         child: Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,9 +374,9 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                                               child: Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
-                                                  Text(item.category.toUpperCase(), style: GoogleFonts.epilogue(fontSize: 10, fontWeight: FontWeight.bold, color: AppTheme.primaryOlive)),
+                                                  Text(item.category.toUpperCase(), style: GoogleFonts.epilogue(fontSize: 10, fontWeight: FontWeight.bold, color: Theme.of(context).primaryColor)),
                                                   const SizedBox(height: 4),
-                                                  Text(item.title, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: AppTheme.secondaryCharcoal), maxLines: 1, overflow: TextOverflow.ellipsis),
+                                                  Text(item.title, style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w600, color: Theme.of(context).colorScheme.onSurface), maxLines: 1, overflow: TextOverflow.ellipsis),
                                                 ],
                                               ),
                                             ),
@@ -398,7 +398,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                     margin: const EdgeInsets.only(right: 16),
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: AppTheme.primaryOlive,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
@@ -443,7 +443,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                                   height: 50,
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    border: Border.all(color: AppTheme.primaryOlive, width: 2),
+                                    border: Border.all(color: Theme.of(context).primaryColor, width: 2),
                                     image: DecorationImage(
                                       image: item.imageBytes != null 
                                           ? MemoryImage(item.imageBytes!) as ImageProvider
@@ -483,7 +483,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                       style: GoogleFonts.epilogue(
                         fontWeight: FontWeight.bold,
                         letterSpacing: 1.0,
-                        color: isSelected ? Colors.white : AppTheme.secondaryCharcoal.withOpacity(0.6),
+                        color: isSelected ? Colors.white : Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                       ),
                     ),
                     selected: isSelected,
@@ -492,12 +492,12 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                         _selectedCategory = category;
                       });
                     },
-                    selectedColor: AppTheme.primaryOlive,
+                    selectedColor: Theme.of(context).primaryColor,
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                       side: BorderSide(
-                        color: isSelected ? Colors.transparent : AppTheme.tertiaryMutedOlive.withOpacity(0.3),
+                        color: isSelected ? Colors.transparent : Theme.of(context).colorScheme.secondary.withOpacity(0.3),
                       ),
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -526,7 +526,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.2)),
+                      border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.2)),
                     ),
                     clipBehavior: Clip.antiAlias,
                     child: Column(
@@ -552,7 +552,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                               Text(
                                 item.brand.toUpperCase(),
                                 style: GoogleFonts.epilogue(
-                                  color: AppTheme.tertiaryMutedOlive,
+                                  color: Theme.of(context).colorScheme.secondary,
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
                                   letterSpacing: 1.0,
@@ -562,7 +562,7 @@ class _WardrobeScreenState extends State<WardrobeScreen> {
                               Text(
                                 item.title,
                                 style: GoogleFonts.inter(
-                                  color: AppTheme.secondaryCharcoal,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
                                 ),

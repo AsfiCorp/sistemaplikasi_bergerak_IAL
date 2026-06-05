@@ -17,10 +17,10 @@ class PrivacyCenterScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
+              Icon(
                 Icons.lock_outline,
                 size: 120,
-                color: AppTheme.primaryOlive,
+                color: Theme.of(context).primaryColor,
               ),
               const SizedBox(height: 32),
               Text(
@@ -29,7 +29,7 @@ class PrivacyCenterScreen extends StatelessWidget {
                 style: GoogleFonts.epilogue(
                   fontSize: 28,
                   fontWeight: FontWeight.w800,
-                  color: AppTheme.secondaryCharcoal,
+                  color: Theme.of(context).colorScheme.onSurface,
                   letterSpacing: 1.5,
                 ),
               ),
@@ -39,23 +39,23 @@ class PrivacyCenterScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 16,
-                  color: AppTheme.secondaryCharcoal.withOpacity(0.7),
+                  color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
                   height: 1.5,
                 ),
               ),
               const SizedBox(height: 48),
               OutlinedButton.icon(
                 onPressed: () => Navigator.pop(context),
-                icon: const Icon(Icons.arrow_back, color: AppTheme.primaryOlive),
+                icon: Icon(Icons.arrow_back, color: Theme.of(context).primaryColor),
                 label: Text(
                   'BACK TO APP',
                   style: GoogleFonts.epilogue(
-                    color: AppTheme.primaryOlive,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: AppTheme.primaryOlive),
+                  side: BorderSide(color: Theme.of(context).primaryColor),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
                   padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                 ),

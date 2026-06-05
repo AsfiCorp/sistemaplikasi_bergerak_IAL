@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                       '${getGreeting()}, $name',
                       style: GoogleFonts.inter(
                         fontSize: 16,
-                        color: AppTheme.secondaryCharcoal.withOpacity(0.6),
+                        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -57,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                       style: GoogleFonts.epilogue(
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
-                        color: AppTheme.secondaryCharcoal,
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -99,10 +99,10 @@ class HomeScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                 boxShadow: [
                   BoxShadow(
-                    color: AppTheme.tertiaryMutedOlive.withOpacity(0.1),
+                    color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -116,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.location_on_outlined, size: 16, color: AppTheme.primaryOlive),
+                          Icon(Icons.location_on_outlined, size: 16, color: Theme.of(context).primaryColor),
                           const SizedBox(width: 4),
                           Text(
                             userProfile.userLocation.toUpperCase(),
@@ -124,7 +124,7 @@ class HomeScreen extends StatelessWidget {
                               fontWeight: FontWeight.w700,
                               fontSize: 14,
                               letterSpacing: 1.5,
-                              color: AppTheme.primaryOlive,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ],
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                         'Cerah',
                         style: GoogleFonts.inter(
                           fontSize: 16,
-                          color: AppTheme.secondaryCharcoal.withOpacity(0.7),
+                          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
                         ),
                       ),
                     ],
@@ -144,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                     style: GoogleFonts.epilogue(
                       fontSize: 36,
                       fontWeight: FontWeight.w800,
-                      color: AppTheme.secondaryCharcoal,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ],
@@ -167,10 +167,10 @@ class HomeScreen extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Wardrobe Needs More Items', style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, color: AppTheme.secondaryCharcoal)),
+                      title: Text('Wardrobe Needs More Items', style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface)),
                       content: Text(
                         'Please add at least 3 items to your wardrobe (including at least 1 Top and 1 Bottom) before the AI can generate an outfit.',
-                        style: GoogleFonts.inter(color: AppTheme.secondaryCharcoal),
+                        style: GoogleFonts.inter(color: Theme.of(context).colorScheme.onSurface),
                       ),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       actions: [
@@ -210,7 +210,7 @@ class HomeScreen extends StatelessWidget {
                 style: GoogleFonts.epilogue(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: AppTheme.secondaryCharcoal,
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               TextButton(
@@ -220,7 +220,7 @@ class HomeScreen extends StatelessWidget {
                 child: Text(
                   'See All',
                   style: GoogleFonts.inter(
-                    color: AppTheme.primaryOlive,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -238,21 +238,21 @@ class HomeScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3), style: BorderStyle.solid),
+                border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3), style: BorderStyle.solid),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.inventory_2_outlined, size: 48, color: AppTheme.tertiaryMutedOlive.withOpacity(0.5)),
+                  Icon(Icons.inventory_2_outlined, size: 48, color: Theme.of(context).colorScheme.secondary.withOpacity(0.5)),
                   const SizedBox(height: 16),
                   Text(
                     'Your wardrobe is empty.',
-                    style: GoogleFonts.epilogue(color: AppTheme.secondaryCharcoal, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.epilogue(color: Theme.of(context).colorScheme.onSurface, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'Start adding items!',
-                    style: GoogleFonts.inter(color: AppTheme.tertiaryMutedOlive),
+                    style: GoogleFonts.inter(color: Theme.of(context).colorScheme.secondary),
                   ),
                 ],
               ),
@@ -271,7 +271,7 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.2)),
+                      border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.2)),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -302,7 +302,7 @@ class HomeScreen extends StatelessWidget {
                                 style: GoogleFonts.epilogue(
                                   fontSize: 10,
                                   fontWeight: FontWeight.bold,
-                                  color: AppTheme.tertiaryMutedOlive,
+                                  color: Theme.of(context).colorScheme.secondary,
                                   letterSpacing: 1.0,
                                 ),
                               ),
@@ -312,7 +312,7 @@ class HomeScreen extends StatelessWidget {
                                 style: GoogleFonts.inter(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,
-                                  color: AppTheme.secondaryCharcoal,
+                                  color: Theme.of(context).colorScheme.onSurface,
                                 ),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,

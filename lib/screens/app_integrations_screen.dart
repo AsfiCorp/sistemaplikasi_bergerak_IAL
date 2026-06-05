@@ -39,7 +39,7 @@ class AppIntegrationsScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+        border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
       ),
       child: Row(
         children: [
@@ -47,10 +47,10 @@ class AppIntegrationsScreen extends StatelessWidget {
             width: 48,
             height: 48,
             decoration: BoxDecoration(
-              color: AppTheme.tertiaryMutedOlive.withOpacity(0.1),
+              color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: const Icon(Icons.extension, color: AppTheme.primaryOlive),
+            child: Icon(Icons.extension, color: Theme.of(context).primaryColor),
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -59,11 +59,11 @@ class AppIntegrationsScreen extends StatelessWidget {
               children: [
                 Text(title, style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, fontSize: 16)),
                 const SizedBox(height: 4),
-                Text(subtitle, style: GoogleFonts.inter(fontSize: 12, color: AppTheme.secondaryCharcoal.withOpacity(0.6))),
+                Text(subtitle, style: GoogleFonts.inter(fontSize: 12, color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6))),
               ],
             ),
           ),
-          Switch(value: isConnected, onChanged: onChanged, activeColor: AppTheme.primaryOlive),
+          Switch(value: isConnected, onChanged: onChanged, activeColor: Theme.of(context).primaryColor),
         ],
       ),
     );

@@ -53,7 +53,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
       Navigator.pop(context);
       
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Item added to Wardrobe!'), backgroundColor: AppTheme.primaryOlive),
+        SnackBar(content: Text('Item added to Wardrobe!'), backgroundColor: Theme.of(context).primaryColor),
       );
     }
   }
@@ -75,9 +75,9 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   height: 200,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: AppTheme.tertiaryMutedOlive.withOpacity(0.1),
+                    color: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3), style: BorderStyle.solid),
+                    border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3), style: BorderStyle.solid),
                     image: _imageBytes != null
                         ? DecorationImage(image: MemoryImage(_imageBytes!), fit: BoxFit.cover)
                         : null,
@@ -86,9 +86,9 @@ class _AddItemScreenState extends State<AddItemScreen> {
                       ? Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(Icons.add_a_photo_outlined, size: 48, color: AppTheme.primaryOlive),
+                            Icon(Icons.add_a_photo_outlined, size: 48, color: Theme.of(context).primaryColor),
                             const SizedBox(height: 8),
-                            Text('Upload Image', style: GoogleFonts.inter(color: AppTheme.primaryOlive, fontWeight: FontWeight.bold)),
+                            Text('Upload Image', style: GoogleFonts.inter(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold)),
                           ],
                         )
                       : null,

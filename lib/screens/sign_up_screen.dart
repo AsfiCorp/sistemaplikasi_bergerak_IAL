@@ -85,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               style: GoogleFonts.epilogue(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.secondaryCharcoal,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 32),
@@ -102,7 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                       ),
                     ),
                     validator: (value) => value == null || value.isEmpty ? 'Please enter your name' : null,
@@ -116,7 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                       ),
                     ),
                     validator: (value) {
@@ -136,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                       ),
                     ),
                     validator: (value) {
@@ -156,7 +156,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
-                        borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                        borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                       ),
                     ),
                     validator: (value) {
@@ -193,14 +193,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 Text(
                   "Already have an account?",
-                  style: GoogleFonts.inter(color: AppTheme.secondaryCharcoal),
+                  style: GoogleFonts.inter(color: Theme.of(context).colorScheme.onSurface),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     'Sign In',
                     style: GoogleFonts.inter(
-                      color: AppTheme.primaryOlive,
+                      color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

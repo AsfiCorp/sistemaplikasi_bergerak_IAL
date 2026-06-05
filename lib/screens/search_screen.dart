@@ -84,7 +84,7 @@ class _SearchScreenState extends State<SearchScreen> {
             decoration: InputDecoration(
               hintText: 'Search inspiration...',
               hintStyle: GoogleFonts.inter(color: Colors.grey.shade500),
-              prefixIcon: const Icon(Icons.search, color: AppTheme.secondaryCharcoal),
+              prefixIcon: Icon(Icons.search, color: Theme.of(context).colorScheme.onSurface),
               suffixIcon: query.isNotEmpty || _currentTag.isNotEmpty 
                 ? IconButton(
                     icon: const Icon(Icons.clear), 
@@ -103,11 +103,11 @@ class _SearchScreenState extends State<SearchScreen> {
               contentPadding: const EdgeInsets.symmetric(vertical: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
               ),
             ),
           ),
@@ -132,7 +132,7 @@ class _SearchScreenState extends State<SearchScreen> {
             style: GoogleFonts.epilogue(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: AppTheme.secondaryCharcoal,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 16),
@@ -168,7 +168,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(16),
-                                border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.2)),
+                                border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.2)),
                               ),
                               clipBehavior: Clip.antiAlias,
                               child: Image.network(
@@ -218,13 +218,13 @@ class _SearchScreenState extends State<SearchScreen> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                          border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                         ),
                         child: Center(
                           child: Text(
                             category.toUpperCase(),
                             style: GoogleFonts.epilogue(
-                              color: AppTheme.primaryOlive,
+                              color: Theme.of(context).primaryColor,
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               letterSpacing: 1.5,
@@ -261,13 +261,13 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: isSelected ? AppTheme.primaryOlive : AppTheme.tertiaryMutedOlive.withOpacity(0.15),
+          color: isSelected ? Theme.of(context).primaryColor : Theme.of(context).colorScheme.secondary.withOpacity(0.15),
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
           text,
           style: GoogleFonts.inter(
-            color: isSelected ? Colors.white : AppTheme.primaryOlive,
+            color: isSelected ? Colors.white : Theme.of(context).primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),

@@ -43,7 +43,7 @@ class _LocationModalState extends State<LocationModal> {
               style: GoogleFonts.epilogue(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.secondaryCharcoal,
+                color: Theme.of(context).colorScheme.onSurface,
                 letterSpacing: 1.2,
               ),
             ),
@@ -54,18 +54,18 @@ class _LocationModalState extends State<LocationModal> {
                 hintText: 'CITY NAME',
                 hintStyle: GoogleFonts.epilogue(color: Colors.grey.shade400, letterSpacing: 1.0),
                 filled: true,
-                fillColor: AppTheme.backgroundCream.withOpacity(0.3),
+                fillColor: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.3),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.5)),
+                  borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.5)),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: AppTheme.tertiaryMutedOlive.withOpacity(0.5)),
+                  borderSide: BorderSide(color: Theme.of(context).colorScheme.secondary.withOpacity(0.5)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: const BorderSide(color: AppTheme.primaryOlive),
+                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
                 ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               ),
@@ -75,16 +75,16 @@ class _LocationModalState extends State<LocationModal> {
               width: double.infinity,
               child: OutlinedButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.my_location, color: AppTheme.primaryOlive),
+                icon: Icon(Icons.my_location, color: Theme.of(context).primaryColor),
                 label: Text(
                   'USE CURRENT LOCATION',
                   style: GoogleFonts.epilogue(
-                    color: AppTheme.primaryOlive,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 style: OutlinedButton.styleFrom(
-                  side: const BorderSide(color: AppTheme.primaryOlive),
+                  side: BorderSide(color: Theme.of(context).primaryColor),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
@@ -108,7 +108,7 @@ class _LocationModalState extends State<LocationModal> {
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.primaryOlive,
+                    backgroundColor: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),

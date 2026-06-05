@@ -88,7 +88,7 @@ class _OotdPreferenceScreenState extends State<OotdPreferenceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundCream,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(title: const Text('AI PREFERENCES')),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -100,7 +100,7 @@ class _OotdPreferenceScreenState extends State<OotdPreferenceScreen> {
               style: GoogleFonts.epilogue(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.secondaryCharcoal,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 32),

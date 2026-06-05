@@ -2,61 +2,61 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Heritage Raw Palette (Google Stitch)
-  static const Color primaryOlive = Color(0xFF556B2F); // Olive Green
-  static const Color secondaryCharcoal = Color(0xFF333333); // Dark Gray
-  static const Color tertiaryMutedOlive = Color(0xFFA9A970); // Muted Olive
-  static const Color backgroundCream = Color(0xFFEBEBD0); // Washed Cream
+  // Aesthetic White & Brown Palette
+  static const Color primaryBrown = Color(0xFF8B5A2B); // Aesthetic Brown
+  static const Color textDarkBrown = Color(0xFF3E2723); // Dark Brown
+  static const Color tertiaryMutedBrown = Color(0xFFD7CCC8); // Muted Brown
+  static const Color backgroundWhite = Colors.white; // White
 
   static ThemeData get lightTheme {
     return ThemeData(
-      primaryColor: primaryOlive,
-      scaffoldBackgroundColor: backgroundCream,
+      primaryColor: primaryBrown,
+      scaffoldBackgroundColor: backgroundWhite,
       colorScheme: const ColorScheme.light(
-        primary: primaryOlive,
-        secondary: tertiaryMutedOlive,
-        surface: backgroundCream,
-        onSurface: secondaryCharcoal,
+        primary: primaryBrown,
+        secondary: tertiaryMutedBrown,
+        surface: backgroundWhite,
+        onSurface: textDarkBrown,
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: backgroundCream,
+        backgroundColor: backgroundWhite,
         elevation: 0,
-        iconTheme: const IconThemeData(color: primaryOlive),
+        iconTheme: const IconThemeData(color: primaryBrown),
         titleTextStyle: GoogleFonts.epilogue(
-          color: secondaryCharcoal,
+          color: textDarkBrown,
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
       ),
       textTheme: TextTheme(
         displayLarge: GoogleFonts.epilogue(
-          color: secondaryCharcoal,
+          color: textDarkBrown,
           fontSize: 32,
           fontWeight: FontWeight.bold,
         ),
         titleLarge: GoogleFonts.epilogue(
-          color: secondaryCharcoal,
+          color: textDarkBrown,
           fontSize: 22,
           fontWeight: FontWeight.w600,
         ),
         bodyLarge: GoogleFonts.inter(
-          color: secondaryCharcoal,
+          color: textDarkBrown,
           fontSize: 16,
         ),
         bodyMedium: GoogleFonts.inter(
-          color: secondaryCharcoal,
+          color: textDarkBrown,
           fontSize: 14,
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: backgroundCream,
-        selectedItemColor: primaryOlive,
-        unselectedItemColor: tertiaryMutedOlive,
+        backgroundColor: backgroundWhite,
+        selectedItemColor: primaryBrown,
+        unselectedItemColor: tertiaryMutedBrown,
         showUnselectedLabels: true,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryOlive,
+          backgroundColor: primaryBrown,
           foregroundColor: Colors.white,
           textStyle: GoogleFonts.epilogue(fontWeight: FontWeight.w600, letterSpacing: 1.2),
           shape: RoundedRectangleBorder(

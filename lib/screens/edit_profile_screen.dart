@@ -81,7 +81,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             const SizedBox(height: 16),
             TextButton(
               onPressed: _pickImage,
-              child: const Text('Change Photo', style: TextStyle(color: AppTheme.primaryOlive, fontWeight: FontWeight.bold)),
+              child: Text('Change Photo', style: TextStyle(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 32),
             TextField(

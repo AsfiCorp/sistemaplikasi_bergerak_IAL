@@ -35,9 +35,9 @@ class IALVintageApp extends StatelessWidget {
       home: Consumer<AuthProvider>(
         builder: (context, auth, child) {
           if (!auth.isInitialized) {
-            return const Scaffold(
+            return Scaffold(
               body: Center(
-                child: CircularProgressIndicator(color: AppTheme.primaryOlive),
+                child: CircularProgressIndicator(color: Theme.of(context).primaryColor),
               ),
             );
           }

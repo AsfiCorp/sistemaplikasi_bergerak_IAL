@@ -89,7 +89,7 @@ class _MainScreenState extends State<MainScreen> {
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: AppTheme.tertiaryMutedOlive.withOpacity(0.2),
+              color: Theme.of(context).colorScheme.secondary.withOpacity(0.2),
               width: 1.0,
             ),
           ),

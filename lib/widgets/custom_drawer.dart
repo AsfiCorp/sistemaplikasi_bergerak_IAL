@@ -14,7 +14,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: AppTheme.primaryOlive,
+      backgroundColor: Theme.of(context).primaryColor,
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,8 +55,8 @@ class CustomDrawer extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Log Out', style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, color: AppTheme.secondaryCharcoal)),
-                      content: Text('Are you sure you want to log out?', style: GoogleFonts.inter(color: AppTheme.secondaryCharcoal)),
+                      title: Text('Log Out', style: GoogleFonts.epilogue(fontWeight: FontWeight.bold, color: Theme.of(context).colorScheme.onSurface)),
+                      content: Text('Are you sure you want to log out?', style: GoogleFonts.inter(color: Theme.of(context).colorScheme.onSurface)),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       actions: [
                         TextButton(

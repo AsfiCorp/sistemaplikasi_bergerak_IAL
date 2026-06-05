@@ -61,8 +61,8 @@ class ArchiveDetailScreen extends StatelessWidget {
                     colors: [
                       Colors.black.withOpacity(0.4),
                       Colors.transparent,
-                      AppTheme.backgroundCream.withOpacity(0.8),
-                      AppTheme.backgroundCream,
+                      Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
+                      Theme.of(context).scaffoldBackgroundColor,
                     ],
                     stops: const [0.0, 0.5, 0.8, 1.0],
                   ),
@@ -78,7 +78,7 @@ class ArchiveDetailScreen extends StatelessWidget {
                   Text(
                     'THE ESSENTIAL',
                     style: GoogleFonts.epilogue(
-                      color: AppTheme.primaryOlive,
+                      color: Theme.of(context).primaryColor,
                       letterSpacing: 2.0,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
@@ -90,7 +90,7 @@ class ArchiveDetailScreen extends StatelessWidget {
                     style: GoogleFonts.epilogue(
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
-                      color: AppTheme.secondaryCharcoal,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -98,9 +98,9 @@ class ArchiveDetailScreen extends StatelessWidget {
                   // Tags Row
                   Row(
                     children: [
-                      _buildPill(item.brand.toUpperCase()),
+                      _buildPill(context, item.brand.toUpperCase()),
                       const SizedBox(width: 8),
-                      _buildPill(item.material, outlined: true),
+                      _buildPill(context, item.material, outlined: true),
                     ],
                   ),
                   
@@ -112,16 +112,16 @@ class ArchiveDetailScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+                      border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
                     ),
                     child: Column(
                       children: [
-                        _buildSpecRow('Category', item.category),
+                        _buildSpecRow(context, 'Category', item.category),
                         const Padding(
                           padding: EdgeInsets.symmetric(vertical: 12.0),
                           child: Divider(height: 1),
                         ),
-                        _buildSpecRow('Material', item.material),
+                        _buildSpecRow(context, 'Material', item.material),
                       ],
                     ),
                   ),
@@ -142,13 +142,13 @@ class ArchiveDetailScreen extends StatelessWidget {
                                   'Item successfully added to your Wardrobe!',
                                   style: GoogleFonts.inter(fontWeight: FontWeight.w600, color: Colors.white),
                                 ),
-                                backgroundColor: AppTheme.primaryOlive,
+                                backgroundColor: Theme.of(context).primaryColor,
                                 behavior: SnackBarBehavior.floating,
                               ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: isOwned ? Colors.grey.shade400 : AppTheme.primaryOlive,
+                            backgroundColor: isOwned ? Colors.grey.shade400 : Theme.of(context).primaryColor,
                             disabledBackgroundColor: Colors.grey.shade400,
                           ),
                           child: Text(isOwned ? 'ALREADY IN WARDROBE' : 'ADD TO WARDROBE'),
@@ -209,25 +209,25 @@ class ArchiveDetailScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => EditItemScreen(item: item)));
         },
-        backgroundColor: AppTheme.primaryOlive,
+        backgroundColor: Theme.of(context).primaryColor,
         icon: const Icon(Icons.edit, color: Colors.white),
         label: Text('EDIT ITEM', style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold)),
       ) : null,
     );
   }
 
-  Widget _buildPill(String text, {bool outlined = false}) {
+  Widget _buildPill(BuildContext context, String text, {bool outlined = false}) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: outlined ? Colors.transparent : AppTheme.tertiaryMutedOlive.withOpacity(0.2),
+        color: outlined ? Colors.transparent : Theme.of(context).colorScheme.secondary.withOpacity(0.2),
         borderRadius: BorderRadius.circular(20),
-        border: outlined ? Border.all(color: AppTheme.primaryOlive) : null,
+        border: outlined ? Border.all(color: Theme.of(context).primaryColor) : null,
       ),
       child: Text(
         text,
         style: GoogleFonts.inter(
-          color: AppTheme.primaryOlive,
+          color: Theme.of(context).primaryColor,
           fontWeight: FontWeight.w700,
           fontSize: 12,
         ),
@@ -235,21 +235,21 @@ class ArchiveDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSpecRow(String label, String value) {
+  Widget _buildSpecRow(BuildContext context, String label, String value) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           label,
           style: GoogleFonts.inter(
-            color: AppTheme.secondaryCharcoal.withOpacity(0.6),
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
             fontSize: 16,
           ),
         ),
         Text(
           value,
           style: GoogleFonts.inter(
-            color: AppTheme.secondaryCharcoal,
+            color: Theme.of(context).colorScheme.onSurface,
             fontWeight: FontWeight.w600,
             fontSize: 16,
           ),

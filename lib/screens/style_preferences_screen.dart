@@ -50,7 +50,7 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
               style: GoogleFonts.epilogue(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.primaryOlive,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             const SizedBox(height: 16),
@@ -72,7 +72,7 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
               style: GoogleFonts.epilogue(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: AppTheme.primaryOlive,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             const SizedBox(height: 16),
@@ -103,7 +103,7 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppTheme.tertiaryMutedOlive.withOpacity(0.3)),
+        border: Border.all(color: Theme.of(context).colorScheme.secondary.withOpacity(0.3)),
       ),
       child: SwitchListTile(
         contentPadding: EdgeInsets.zero,
@@ -111,7 +111,7 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
         subtitle: Text(subtitle, style: GoogleFonts.inter(fontSize: 12)),
         value: value,
         onChanged: onChanged,
-        activeColor: AppTheme.primaryOlive,
+        activeColor: Theme.of(context).primaryColor,
       ),
     );
   }
@@ -120,12 +120,12 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: isAvailable ? (selectedFit == title ? AppTheme.primaryOlive.withOpacity(0.1) : Colors.white) : Colors.grey.shade200,
+        color: isAvailable ? (selectedFit == title ? Theme.of(context).primaryColor.withOpacity(0.1) : Colors.white) : Colors.grey.shade200,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: isAvailable && selectedFit == title 
-              ? AppTheme.primaryOlive 
-              : AppTheme.tertiaryMutedOlive.withOpacity(0.3),
+              ? Theme.of(context).primaryColor 
+              : Theme.of(context).colorScheme.secondary.withOpacity(0.3),
         ),
       ),
       child: RadioListTile<String>(
@@ -134,7 +134,7 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
           style: GoogleFonts.inter(
             fontWeight: FontWeight.w600,
             decoration: isAvailable ? null : TextDecoration.lineThrough,
-            color: isAvailable ? AppTheme.secondaryCharcoal : Colors.grey.shade500,
+            color: isAvailable ? Theme.of(context).colorScheme.onSurface : Colors.grey.shade500,
           ),
         ),
         value: title,
@@ -142,7 +142,7 @@ class _StylePreferencesScreenState extends State<StylePreferencesScreen> {
         onChanged: isAvailable ? (val) {
           if (val != null) setState(() => selectedFit = val);
         } : null,
-        activeColor: AppTheme.primaryOlive,
+        activeColor: Theme.of(context).primaryColor,
       ),
     );
   }
